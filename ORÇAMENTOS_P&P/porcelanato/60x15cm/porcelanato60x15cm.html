@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>PORCELANATO 60x15cm</title>
+</head>
+<body>
+
+<h1>Porcelanato 60x15cm</h1>
+
+<ul>
+    <li><a href="../../index.html">Menu principal</a></li>
+    <li><a href="../../porcelanato/60x15cm/porcelanato60x15cmkits.html">Orçamento com KITS</a></li>
+    <li><a href="../../porcelanato/60x15cm/porcelanato60x15cmquantidades.html">Orçamento com VÁRIAS MEDIDAS</a></li>
+</ul>
+
+<div class="geral">
+    <div class="border">
+        <div class="center">
+            <form>
+                <div class="form">
+                    <label for="n1">Digite a primeira medida (<y class="y3">m</y>): </label>
+                    <input type="number" name="n1" id="n1" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="n2">Digite a segunda medida (<y class="y3">m</y>): </label>
+                    <input type="number" name="n2" id="n2" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="value1">Digite o valor da placa unitária (<y class="y4">R$</y>): </label>
+                    <input type="number" name="value1" id="value1" step="0.01">
+                </div>
+
+                <div class="button">
+                    <input type="button" id="calcular" value="Calcular">
+                    <button type="button" id="apagarMedidas">Apagar Campo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <div class="border">
+        <div class="center">
+            <form>
+                <div class="form">
+                    <label for="m1">Digite a medida em (<y class="y3">m²</y>): </label>
+                    <input type="number" name="m1" id="m1" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="value2">Digite o valor da placa unitária (<y class="y4">R$</y>): </label>
+                    <input type="number" name="value2" id="value2" step="0.01">
+                </div>
+
+                <div class="button">
+                    <input type="button" id="calcular2" value="Calcular">
+                    <button type="button" id="apagarMedidas2">Apagar Campo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+<div class="result" id="resultado"></div>
+<button id="botao">Copiar Texto</button>
+
+<script>
+    document.getElementById('calcular').addEventListener('click', function() {
+    var n1 = parseFloat(document.getElementById('n1').value);
+    var n2 = parseFloat(document.getElementById('n2').value);
+    var valor1 = parseFloat(document.getElementById('value1').value);
+
+    var media = n1 * n2;
+    var result = Math.ceil(media / 0.09);
+    var valortotal = result * valor1;
+
+    valortotal = valortotal.toFixed(2);
+
+    var cupomDesconto = 0;
+
+    if (valortotal > 600) {
+        cupomDesconto = 10;
+    } else {
+        cupomDesconto = 5;
+    }
+
+    var desconto = (cupomDesconto / 100) * valortotal;
+    var valortotalComDesconto = valortotal - desconto;
+
+    valortotalComDesconto = valortotalComDesconto.toFixed(2);
+
+    var resultado = "Para medida de " + n1 + "m x " + n2 + "m recomendo que compre " + result + " unidades de placas 60x15cm !!!" + "<br>" + "<br>"
+        + "O valor total das " + result + " unidades é de R$" + valortotal + ", Porém estou lhe disponibilizando um super cupom de desconto de " + cupomDesconto + "%, e o valor final será de R$" + valortotalComDesconto + "<br>" + "<br>"
+        + "Caso queira, eu posso criar um anúncio personalizado com a quantidade necessária para seu local de aplicação, entretanto peço que nos envie o modelo desejado, o que acha?😉";
+
+    document.getElementById('resultado').innerHTML = resultado;
+});
+
+document.getElementById('calcular2').addEventListener('click', function() {
+    var m1 = parseFloat(document.getElementById('m1').value);
+    var valor1 = parseFloat(document.getElementById('value2').value);
+
+    var result = Math.ceil(m1 / 0.09);
+    var valortotal = result * valor1;
+
+    valortotal = valortotal.toFixed(2);
+
+    var cupomDesconto = 0;
+
+    if (valortotal > 600) {
+        cupomDesconto = 10;
+    } else {
+        cupomDesconto = 5;
+    }
+
+    var desconto = (cupomDesconto / 100) * valortotal;
+    var valortotalComDesconto = valortotal - desconto;
+
+    valortotalComDesconto = valortotalComDesconto.toFixed(2);
+
+    var resultado = "Para medida de " + m1 + "m² recomendo que compre " + result + " unidades de placas 60x15cm !!!" + "<br>" + "<br>"
+        + "O valor total das " + result + " unidades é de R$" + valortotal + ", Porém estou lhe disponibilizando um super cupom de desconto de " + cupomDesconto + "%, e o valor final será de R$" + valortotalComDesconto + "<br>" + "<br>"
+        + "Caso queira, eu posso criar um anúncio personalizado com a quantidade necessária para seu local de aplicação, entretanto peço que nos envie o modelo desejado, o que acha?😉";
+
+    document.getElementById('resultado').innerHTML = resultado;
+});
+
+const textoParaCopiar = document.getElementById('resultado');
+
+const botaoCopiar = document.getElementById('botao');
+
+botaoCopiar.addEventListener('click', () => {
+
+    const texto = textoParaCopiar.innerText;
+
+    const textarea = document.createElement('textarea');
+    textarea.value = texto;
+
+    document.body.appendChild(textarea);
+
+    textarea.select();
+
+    document.execCommand('copy');
+
+    document.body.removeChild(textarea);
+
+    alert('Texto copiado para a área de transferência!');
+});
+
+    function apagarMedidas() {
+        document.getElementById("n1").value = "";
+        document.getElementById("n2").value = "";
+    }
+
+    document.getElementById("apagarMedidas").addEventListener("click", apagarMedidas);
+
+    function apagarMedidas2() {
+        document.getElementById("m1").value = "";
+    }
+
+    document.getElementById("apagarMedidas2").addEventListener("click", apagarMedidas2);
+</script>
+
+<footer>
+    <h2><y class="y1">Created by</y> <y class="y2">Rafael Konscca</y></h2>
+</footer>
+
+</body>
+</html>

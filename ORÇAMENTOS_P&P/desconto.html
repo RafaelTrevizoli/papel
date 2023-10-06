@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CÁCULO - DESCONTOS</title>
+</head>
+<body>
+
+<h1>Calculadora - DESCONTOS</h1>
+
+<ul>
+    <li><a href="index.html">Menu principal</a></li>
+</ul>
+
+<div class="geral">
+    <div class="border">
+        <div class="center">
+            <form>
+                <div class="form">
+                    <label for="n1">Digite o valor (<y class="y3">bruto</y>): </label>
+                    <input type="number" name="n1" id="n1" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="n2">Digite o desconto (<y class="y4">%</y>): </label>
+                    <input type="number" name="n2" id="n2" step="0.01">
+                </div>
+
+                <div class="button">
+                    <input type="button" id="calcular" value="Calcular">
+                    <button type="button" id="apagarMedidas">Apagar Campo</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+
+<div class="result" id="resultado"></div>
+<button id="botao">Copiar Texto</button>
+
+<script>
+    document.getElementById('calcular').addEventListener('click', function() {
+    var valorbruto = parseFloat(document.getElementById('n1').value);
+    var desconto = parseFloat(document.getElementById('n2').value);
+
+   
+
+    var valortotal = (desconto / 100) * valorbruto;
+    var valortotalComDesconto = valorbruto - valortotal;
+
+    valortotalComDesconto = valortotalComDesconto.toFixed(2);
+
+
+    var resultado = "O valor total será de R$:"+valorbruto+", Porém estou lhe disponibilizando um super cupom de desconto, e o valor total será de R$:"+
+    +valortotalComDesconto+ " !!!💜";
+
+    document.getElementById('resultado').innerHTML = resultado;
+});
+
+const textoParaCopiar = document.getElementById('resultado');
+
+const botaoCopiar = document.getElementById('botao');
+
+botaoCopiar.addEventListener('click', () => {
+
+    const texto = textoParaCopiar.innerText;
+
+    const textarea = document.createElement('textarea');
+    textarea.value = texto;
+
+    document.body.appendChild(textarea);
+
+    textarea.select();
+
+    document.execCommand('copy');
+
+    document.body.removeChild(textarea);
+
+    alert('Texto copiado para a área de transferência!');
+});
+
+    function apagarMedidas() {
+        document.getElementById("n1").value = "";
+        document.getElementById("n2").value = "";
+    }
+
+    document.getElementById("apagarMedidas").addEventListener("click", apagarMedidas);
+
+    function apagarMedidas2() {
+        document.getElementById("m1").value = "";
+    }
+
+    document.getElementById("apagarMedidas2").addEventListener("click", apagarMedidas2);
+</script>
+
+<footer>
+    <h2><y class="y1">Created by</y> <y class="y2">Rafael Konscca</y></h2>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Calculadora Liverpool - CABECEIRA 30x30cm</title>
+</head>
+<body>
+
+<h1>Cabeceira 30x30cm</h1>
+
+<p>Como será a forma de aplicação?</p>
+<ul>
+    <li><button id="apenas">APENAS CABECEIRA</button></li>
+    <li><button id="l">APLICAÇÃO EM L</button></li>
+</ul>
+<p>Escolha um dos modelos de cama abaixo:</p>
+
+<ul>
+    <li><button id="king">KING</button></li>
+    <li><button id="casal">CASAL</button></li>
+    <li><button id="queen">QUEEN</button></li>
+    <li><button id="solteiro">SOLTEIRO</button></li>
+    <li><button id="solteiro_king">SOLTEIRO KING</button></li>
+</ul>
+
+<div class="result" id="resultado"></div>
+<button id="botao">Copiar Texto</button>
+
+<script>
+    // Definir valores para diferentes combinações de aplicação e modelo de cama
+    var valores = {
+        "apenas_king": 10,
+        "apenas_casal": 7,
+        "apenas_queen": 8,
+        "apenas_solteiro": 5,
+        "apenas_solteiro_king": 5,
+        "l_king": 21,
+        "l_casal": 17,
+        "l_queen": 18,
+        "l_solteiro": 15,
+        "l_solteiro_king": 15
+    };
+
+    var aplicacaoButtons = document.querySelectorAll('ul:first-of-type button');
+    var modeloButtons = document.querySelectorAll('ul:last-of-type button');
+
+    aplicacaoButtons.forEach(function(aplicacaoButton) {
+        aplicacaoButton.addEventListener('click', function() {
+            // Remover a classe 'selected' de todos os botões de aplicação
+            aplicacaoButtons.forEach(function(btn) {
+                btn.classList.remove('selected');
+            });
+            // Adicionar a classe 'selected' ao botão de aplicação clicado
+            aplicacaoButton.classList.add('selected');
+
+            // Verificar o modelo de cama selecionado
+            var modeloSelecionado = document.querySelector('ul:last-of-type button.selected').id;
+            // Combinar aplicação e modelo para obter a chave correspondente no objeto de valores
+            var chave = aplicacaoButton.id + "_" + modeloSelecionado;
+            // Obter o valor correspondente da chave
+            var valor = valores[chave];
+
+            // Lógica para calcular e exibir o resultado
+            var resultado = "Para cama de " + modeloSelecionado.toUpperCase() + ", com a aplicação em " + aplicacaoButton.textContent + ", será necessário a compra de " + valor + " unidades de cabeceira 30x30cm";
+            document.getElementById('resultado').innerHTML = resultado;
+        });
+    });
+
+    modeloButtons.forEach(function(modeloButton) {
+        modeloButton.addEventListener('click', function() {
+            // Remover a classe 'selected' de todos os botões de modelo
+            modeloButtons.forEach(function(btn) {
+                btn.classList.remove('selected');
+            });
+            // Adicionar a classe 'selected' ao botão de modelo clicado
+            modeloButton.classList.add('selected');
+
+            // Verificar o aplicação selecionada
+            var aplicacaoSelecionada = document.querySelector('ul:first-of-type button.selected').id;
+            // Combinar aplicação e modelo para obter a chave correspondente no objeto de valores
+            var chave = aplicacaoSelecionada + "_" + modeloButton.id;
+            // Obter o valor correspondente da chave
+            var valor = valores[chave];
+
+            // Lógica para calcular e exibir o resultado
+            var resultado = "Para cama de " + modeloButton.textContent.toUpperCase() + ", com a aplicação em " + aplicacaoSelecionada + ", será necessário a compra de " + valor + " unidades de cabeceira 30x30cm";
+            document.getElementById('resultado').innerHTML = resultado;
+        });
+    });
+</script>   
+
+<footer>
+    <h2><y class="y1">Created by</y> <y class="y2">Rafael Konscca</y></h2>
+</footer>
+
+</body>
+</html>

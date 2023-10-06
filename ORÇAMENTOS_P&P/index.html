@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+</head>
+<body>
+    
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Allura&family=Poppins:ital,wght@0,100;0,400;0,500;0,800;1,400&display=swap');
+@media screen and (max-width: 1000px) {
+    .geral {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        display: flex;
+   }
+    .border {
+        margin-bottom: 20px;
+   }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('img/fundopp.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-position: center center;
+}
+
+h1 {
+    background-color: #7d63b3;
+    color: #fff;
+    padding: 20px 0;
+    width: 100%;
+    margin: 0;
+    font-size: 45px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 2px #4f195f;
+}
+
+h2 {
+    margin-top: 50px;
+    text-align: center;
+    align-items: center;
+    font-size: 25px;
+    color: #6c5b7b;
+}
+
+p {
+    font-size: 70px;
+    margin-top: 40px;
+    color: #fff;
+    font-family: 'Allura', cursive;
+    text-shadow: 2px 2px 2px #4f195f;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+li {
+    margin: 30px 20px;
+    margin: 30px 20px;
+    width: 200px;
+}
+
+a {
+    text-decoration: none;
+    background-color: #7d63b3;
+    color: #fff;
+    padding: 10px 20px; /*Define o tamanho do botão (A x L)*/
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    margin-top: 60px;
+    text-align: center;
+    align-items: center;
+}
+
+.geral {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    margin-top: -10px;
+    flex-wrap: wrap;
+    justify-content: center; /* Alinha os blocos horizontalmente ao centro */
+    text-align: center; /* Alinha o conteúdo dentro dos blocos ao centro */
+    gap: 7px;
+}
+
+.geral-2{
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    margin-top: -10px;
+    flex-wrap: wrap;
+    justify-content: center; /* Alinha os blocos horizontalmente ao centro */
+    text-align: center; /* Alinha o conteúdo dentro dos blocos ao centro */
+    gap: 7px;
+}
+
+.border-valor{
+    border-radius: 10px;
+    margin: 20px 0;
+    margin-top: -24px;
+    padding: 10px;
+    width: 400px; /*Define o tamanho do box (L)*/
+    height: 113px; /*Define o tamanho do box (A)*/
+    background-color: #fff;  
+    border: 1.50px solid #ccc;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.border-porce, .border-liver, .border-pvc, .border-mad, .border-espu, .border-cabeceira, .border-adesivo,.border-isopor{
+    border-radius: 10px;
+    margin: 20px 0;
+    margin-top: -24px;
+    padding: 10px;
+    width: 370px; /*Define o tamanho do box (L)*/
+    height: 400px; /*Define o tamanho do box (A)*/
+    background-color: #fff;  
+    border: 1.50px solid #ccc;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.border-liver:hover{
+    background-image: url('img/liver.jpg');
+    transform: scale(1.03);
+    transition: transform 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.border-porce:hover{
+    background-image: url('img/porcelanato.jpg');
+    transform: scale(1.03);
+    transition: transform 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.border-mad:hover{
+    background-image: url('img/mad.jpg');
+    transform: scale(1.03);
+    transition: transform 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.border-pvc:hover{
+    background-image: url('img/pvc.jpg');
+    transform: scale(1.03);
+    transition: transform 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.border-espu:hover{
+    background-image: url('img/espuma.jpg');
+    transform: scale(1.03);
+    transition: transform 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.border-adesivo:hover{
+    background-image: url('img/adesivo.jpg');
+    transform: scale(1.03);
+    transition: transform 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.border-cabeceira:hover{
+    background-image: url('img/cabeceira.jpg');
+    transform: scale(1.03);
+    transition: transform 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.border-isopor:hover{
+    background-image: url('img/isopor.jpg');
+    transform: scale(1.03);
+    transition: transform 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.border-valor:hover{
+    background-image: url('img/valor.jpg');
+    transform: scale(1.03);
+    transition: transform 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.border-porce:hover h2,
+.border-isopor:hover h2,
+.border-pvc:hover h2,
+.border-mad:hover h2,
+.border-liver:hover h2,
+.border-espu:hover h2,
+.border-adesivo:hover h2,
+.border-cabeceira:hover h2 {
+color: #ffffff;
+text-shadow: 2px 2px 2px rgb(0, 0, 0);
+}
+
+a:hover {
+    background-color: #6c5b7b;
+}
+
+::selection{
+    background: #c695ee;
+    color: #7d63b3;
+}
+
+.y1 {
+    color: #d995ee;
+}
+
+.y2 {
+    color: #7d63b3;
+}
+
+</style>
+
+    <h1><img src="img/prestashop-logo-1626721913.jpg" alt=""> <br> <y class="y1">C</y>alculadora para Orçamento<y class="y1">s</y></h1>
+
+    <p>Escolha um dos nossos produtos abaixo:</p>
+    
+<div class="geral">
+  <div class="border-porce">
+    <h2>PORCELANATO</h2>
+    <ul>
+        <li><a href="porcelanato/25x25cm/porcelanato25x25cm/porcelanato_25x25cm.html">25x25cm</a></li>
+        <li><a href="porcelanato/50x50cm/porcelanato50x50cm/porcelanato50x50cm.html">50x50cm</a></li>
+        <li><a href="porcelanato/60x15cm/porcelanato60x15cm.html">60x15cm</a></li>
+    </ul>
+  </div>
+
+  <div class="border-pvc">
+    <h2>PVC</h2>
+    <ul>
+        <li><a href="pvc/25x25cm/pvc_25x25cm/pvc_25x25cm.html">25x25cm</a></li>
+        <li><a href="pvc/25x22cm/pvc25x22cm.html">25x22cm</a></li>
+        <li><a href="pvc/50x50cm/pvc_50x50cm/pvc_50x50cm.html">50x50cm</a></li>
+    </ul>
+  </div>
+
+  <div class="border-mad">
+    <h2>MADEIRA</h2>
+    <ul>
+        <li><a href="madeira/25x25cm/madeira25x25cm.html">25x25cm</a></li>
+        <li><a href="madeira/53x15cm/madeira53x15cm.html">53x15cm</a></li>
+        <li><a href="madeira/53x25cm/madeira53x25cm.html">53x25cm</a></li>
+    </ul>
+  </div>
+
+  <div class="border-liver">
+    <h2>LIVERPOOL</h2>
+    <ul>
+        <li><a href="liverpool/15x15cm/liverpool15x15cm.html">15x15cm</a></li>
+        <li><a href="liverpool/18x18cm/liverpool18x18cm.html">18x18cm</a></li>
+    </ul>
+  </div>
+
+  <div class="border-espu">
+    <h2>ESPUMA</h2>
+    <ul>
+        <li><a href="">Tijolo 38x35cm</a></li>
+        <li><a href="espuma/30x30cm/quadrado30x30cm.html">Quadrado 30x30cm</a></li>
+    </ul>
+  </div>
+
+  <div class="border-adesivo">
+    <h2>ADESIVOS</h2>
+    <ul>
+        <li><a href="adesivos/fotomural/fotomural.html">Foto Mural</a></li>
+        <li><a href="adesivos/papeldeparede/papeldeparede.html">Papel de Parede</a></li>
+        <li><a href="adesivos/adesivoparapiso1mx50cm/adesivoparapiso1mx50cm.html">Adesivo para Piso</a></li>
+    </ul>
+  </div>
+
+  <div class="border-cabeceira">
+    <h2>CABECEIRA</h2>
+    <ul>
+        <li><a href="">60x20cm</a></li>
+        <li><a href="">40x30cm</a></li>
+        <li><a href="">30x30cm</a></li>
+    </ul>
+  </div>
+
+  <div class="border-isopor">
+    <h2>ISOPOR</h2>
+    <ul>
+        <li><a href="">1mx30cm</a></li>
+        <li><a href="">30x50cm</a></li>
+    </ul>
+  </div>
+</div>
+
+<p>Cálculo para descontos</p>
+
+<div class="geral-2">
+    <div class="border-valor">
+        <ul>
+            <li><a href="desconto.html">Clique aqui!</a></li>
+        </ul>
+    </div>
+</div>
+
+    <footer>
+        <h2><y class="y1">Created by</y> <y class="y2">Rafael Konscca</y></h2>
+    </footer>
+
+</body>
+</html>

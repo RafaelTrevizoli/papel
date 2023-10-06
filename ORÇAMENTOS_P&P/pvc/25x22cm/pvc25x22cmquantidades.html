@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../style.css">
+    <title>PVC 25x22cm</title>
+</head>
+<body>
+<h1>PVC 25x22cm</h1>
+
+<ul>
+    <li><a href="../../index.html">Menu principal</a></li>
+    <li><a href="../25x22cm/pvc25x22cm.html">Aba anterior</a></li>
+</ul>
+
+<p>Obs : Digite as medidas em Sequência</p>
+
+<div class="geral">
+    <div class="border">
+        <div class="center_3">
+            <form id="calcForm">
+                <div class="form">
+                    <label for="s1">Digite a primeira medida em (<y class="y3">m</y>): </label>
+                    <input type="number" name="s1" id="s1" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="s2">Digite a segunda medida em (<y class="y3">m</y>): </label>
+                    <input type="number" name="s2" id="s2" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="s3">Digite a primeira medida em (<y class="y3">m</y>): </label>
+                    <input type="number" name="s3" id="s3" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="s4">Digite a segunda medida em (<y class="y3">m</y>): </label>
+                    <input type="number" name="s4" id="s4" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="s5">Digite a primeira medida em (<y class="y3">m</y>): </label>
+                    <input type="number" name="s5" id="s5" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="s6">Digite a segunda medida em (<y class="y3">m</y>): </label>
+                    <input type="number" name="s6" id="s6" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="s7">Digite a primeira medida em (<y class="y3">m</y>): </label>
+                    <input type="number" name="s7" id="s7" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="s8">Digite a segunda medida em (<y class="y3">m</y>): </label>
+                    <input type="number" name="s8" id="s8" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="s9">Digite a primeira medida em (<y class="y3">m</y>): </label>
+                    <input type="number" name="s9" id="s9" step="0.01">
+                </div>
+
+                <div class="form">
+                    <label for="s10">Digite a segunda medida em (<y class="y3">m</y>): </label>
+                    <input type="number" name="s10" id="s10" step="0.01">
+                </div>
+
+                <div class="button">
+                    <input type="button" id="calcular3" value="Calcular">
+                    <button type="button" id="apagarMedidas">Apagar Campo</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="result" id="resultado"></div>
+
+<script>
+document.getElementById('calcular3').addEventListener('click', function () {
+    var s = [];
+    var inputFields = document.querySelectorAll('[id^="s"]');
+    
+    for (var i = 0; i < inputFields.length; i++) {
+        var value = parseFloat(inputFields[i].value);
+        if (!isNaN(value)) {
+            s.push(value);
+        }
+    }
+
+    var media = [];
+    var result = [];
+
+    for (var i = 0; i < s.length / 2; i++) {
+        media[i] = s[i * 2] * s[i * 2 + 1];
+        result[i] = Math.ceil(media[i] / 0.055);
+    }
+
+    var resultadoDiv = document.getElementById('resultado');
+
+    resultadoDiv.innerHTML = "Segue abaixo a quantidade necessária para cada medida informada !!!💜 <br> <br>";
+
+    var somaTotal = 0;
+    var quantidadeTotal = 0;
+
+    for (var i = 0; i < result.length; i++) {
+        var resultado = "Medida de " + s[i * 2] + "m x " + s[i * 2 + 1] + "m = " + result[i] + " Unidades";
+        var soma = result[i];
+        somaTotal += soma;
+        quantidadeTotal += result[i];
+        resultadoDiv.innerHTML += resultado + "<br>";
+    }
+
+    if (quantidadeTotal > 0 && quantidadeTotal <= 10){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    } 
+    if (quantidadeTotal > 10 && quantidadeTotal <= 20){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 2 kit com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    } 
+    if (quantidadeTotal > 20 && quantidadeTotal <= 30){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 3 kit com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    } 
+    if (quantidadeTotal > 30 && quantidadeTotal <= 40){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 2 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 40 && quantidadeTotal <= 50){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 50 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 50 unidades💜";
+    } 
+    if (quantidadeTotal > 50 && quantidadeTotal <= 60){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 3 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 60 && quantidadeTotal <= 70){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 50 unidades + 1 kit com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 50 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 70 && quantidadeTotal <= 80){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 4 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 80 && quantidadeTotal <= 90){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 50 unidades + 2 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 50 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 90 && quantidadeTotal <= 100){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 100 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜";
+    } 
+    if (quantidadeTotal > 100 && quantidadeTotal <= 110){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 100 unidades + 1 kit com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    } 
+    if (quantidadeTotal > 110 && quantidadeTotal <= 120){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 100 unidades + 1 kit com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 120 && quantidadeTotal <= 130){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 100 unidades + 3 kits com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    } 
+    if (quantidadeTotal > 130 && quantidadeTotal <= 140){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 100 unidades + 2 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 140 && quantidadeTotal <= 150){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 100 unidades + 1 kit com 50 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 50 unidades💜";
+    } 
+    if (quantidadeTotal > 150 && quantidadeTotal <= 160){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 100 unidades + 3 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 160 && quantidadeTotal <= 170){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 100 unidades!!! + 7 kits com 10 unidades" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    } 
+    if (quantidadeTotal > 170 && quantidadeTotal <= 180){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 100 unidades + 4 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 180 && quantidadeTotal <= 190){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 1 kit com 100 unidades + 9 kits com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    } 
+    if (quantidadeTotal > 190 && quantidadeTotal <= 200){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 2 kits com 100 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜";
+    } 
+    if (quantidadeTotal > 200 && quantidadeTotal <= 210){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 2 kits com 100 unidades + 1 kit com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    } 
+    if (quantidadeTotal > 210 && quantidadeTotal <= 220){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 2 kits com 100 unidades + 1 kit com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 220 && quantidadeTotal <= 230){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 2 kits com 100 unidades + 3 kits com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    } 
+    if (quantidadeTotal > 230 && quantidadeTotal <= 240){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 2 kits com 100 unidades + 2 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 240 && quantidadeTotal <= 250){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 2 kits com 100 unidades + 1 kit com 50 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 50 unidades💜";
+    } 
+    if (quantidadeTotal > 250 && quantidadeTotal <= 260){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 2 kits com 100 unidades + 3 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 260 && quantidadeTotal <= 270){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 2 kits com 100 unidades + 7 kits co 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    } 
+    if (quantidadeTotal > 270 && quantidadeTotal <= 280){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 2 kits com 100 unidades + 4 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    } 
+    if (quantidadeTotal > 280 && quantidadeTotal <= 290){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 2 kits com 100 unidades + 9 kits com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    } 
+    if (quantidadeTotal > 290 && quantidadeTotal <= 300){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 3 kits com 100 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜";
+    }
+    if (quantidadeTotal > 300 && quantidadeTotal <= 310){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 3 kits com 100 unidades + 1 kit com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    }
+    if (quantidadeTotal > 310 && quantidadeTotal <= 320){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 3 kits com 100 unidades + 1 kit com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    }
+    if (quantidadeTotal > 320 && quantidadeTotal <= 330){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 3 kits com 100 unidades + 3 kits com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    }
+    if (quantidadeTotal > 330 && quantidadeTotal <= 340){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 3 kits com 100 unidades + 2 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    }
+    if (quantidadeTotal > 340 && quantidadeTotal <= 350){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 3 kits com 100 unidades + 1 kit com 50 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 50 unidades💜";
+    }
+    if (quantidadeTotal > 350 && quantidadeTotal <= 360){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 3 kits com 100 unidade + 3 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    }
+    if (quantidadeTotal > 370 && quantidadeTotal <= 380){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 3 kits com 100 unidades + 4 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    }
+    if (quantidadeTotal > 380 && quantidadeTotal <= 390){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 3 kits com 100 unidades + 9 kits com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    }
+    if (quantidadeTotal > 390 && quantidadeTotal <= 400){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 4 kits com 100 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜";
+    }
+    if (quantidadeTotal > 400 && quantidadeTotal <= 410){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 4 kits com 100 unidades + 1 kit com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    }
+    if (quantidadeTotal > 410 && quantidadeTotal <= 420){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 4 kits com 100 unidades + 1 kit com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    }
+    if (quantidadeTotal > 420 && quantidadeTotal <= 430){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 4 kits com 100 unidades + 3 kits com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    }
+    if (quantidadeTotal > 430 && quantidadeTotal <= 440){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 4 kits com 100 unidades + 2 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    }
+    if (quantidadeTotal > 440 && quantidadeTotal <= 450){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 4 kits com 100 unidades + 1 kit com 50 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 50 unidades💜";
+    }
+    if (quantidadeTotal > 450 && quantidadeTotal <= 460){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 4 kits com 100 unidades + 3 kits com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    }
+    if (quantidadeTotal > 460 && quantidadeTotal <= 470){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 4 kits com 100 unidades + 7 kits com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    }
+    if (quantidadeTotal > 470 && quantidadeTotal <= 480){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 4 kits com 100 unidades + 4 kits com 20 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 20 unidades💜";
+    }
+    if (quantidadeTotal > 480 && quantidadeTotal <= 490){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 4 kits com 100 unidades + 9 kits com 10 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜" +"<br>" + "<br>"
+        +"Segue nosso kit com 10 unidades💜";
+    }
+    if (quantidadeTotal > 490 && quantidadeTotal <= 500){
+        resultadoDiv.innerHTML += "<br>Totalizará " + quantidadeTotal + " unidades de placas 25x22cm!!! " + "<br>" + "<br>"
+        +"Para compra de " + quantidadeTotal + " unidades, recomendo que compre 5 kits com 100 unidades!!!" + "<br>" + "<br>"
+        +"Segue nosso kit com 100 unidades💜";
+    }
+});
+
+function apagarMedidas() {
+        document.getElementById("s1").value = "";
+        document.getElementById("s2").value = "";
+        document.getElementById("s3").value = "";
+        document.getElementById("s4").value = "";
+        document.getElementById("s5").value = "";
+        document.getElementById("s6").value = "";
+        document.getElementById("s7").value = "";
+        document.getElementById("s8").value = "";
+        document.getElementById("s9").value = "";
+        document.getElementById("s10").value = "";
+    }
+
+    document.getElementById("apagarMedidas").addEventListener("click", apagarMedidas);
+
+</script>
+
+<footer>
+    <h2><y class="y1">Created by</y> <y class="y2">Rafael Konscca</y></h2>
+</footer>
+
+</body>
+</html>
